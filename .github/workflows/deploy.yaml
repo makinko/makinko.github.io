@@ -34,10 +34,10 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan (PR / push)
-        working-directory: terraform
-        run: terraform plan -var-file="prod.tfvars"
+        working-directory: terraform/envs/dev
+        run: terraform plan -var-file="terraform.tfvars"
 
       - name: Terraform Apply (main only)
         if: github.ref == 'refs/heads/main'
-        working-directory: terraform
-        run: terraform apply -auto-approve -var-file="prod.tfvars"
+        working-directory: terraform/envs/dev
+        run: terraform apply -auto-approve -var-file="terraform.tfvars"
