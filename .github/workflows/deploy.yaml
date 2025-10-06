@@ -30,7 +30,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        working-directory: terraform
+        working-directory: terraform/envs/dev
         run: terraform init
 
       - name: Terraform Plan (PR / push)
