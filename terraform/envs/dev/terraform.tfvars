@@ -1,0 +1,7 @@
+env = "dev"
+function_name = "saas-ap"
+runtime       = "python3.11"
+handler       = "lambda_function.lambda_handler"
+filename      = "lambda_function.zip"
+memory_size   = 128
+timeout       = 10
