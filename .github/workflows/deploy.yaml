@@ -17,6 +17,12 @@ jobs:
       contents: read
 
     steps:
+      - name: Zip lambda source
+        run: |
+          cd src
+          zip -r ../lambda_function.zip .
+          mv lambda_function.zip ../src/
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
