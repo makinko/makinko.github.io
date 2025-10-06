@@ -19,12 +19,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Zip lambda source
         run: |
           cd terraform/src
           zip -r ../lambda_function.zip .
-          mv lambda_function.zip ../src/
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
