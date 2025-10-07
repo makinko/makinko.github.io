@@ -11,7 +11,7 @@ module "lambda_function" {
   filename            = var.filename
   memory_size         = var.memory_size
   timeout             = var.timeout
-  dynamodb_table_name = module.dynamodb_tenant.dynamodb_table_name
+  dynamodb_table_name = module.dynamodb.dynamodb_table_name
 }
 
 module "dynamodb" {
