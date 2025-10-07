@@ -14,8 +14,8 @@ module "lambda_function" {
   dynamodb_table_name = module.dynamodb_tenant.dynamodb_table_name
 }
 
-module "dynamodb_tenant" {
-  source        = "../../modules/dynamodb_tenant"
+module "dynamodb" {
+  source        = "../../modules/dynamodb"
   env           = var.env
   project_name  = var.project_name
   table_name    = var.table_name
