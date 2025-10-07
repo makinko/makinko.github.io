@@ -1,21 +1,9 @@
-variable "env" {
-  type        = string
-}
-variable "function_name" {
-  type        = string
-}
-variable "runtime" {
-  type        = string
-}
-variable "handler" {
-  type        = string
-}
-variable "filename" {
-  type        = string
-}
-variable "memory_size" {
-  type        = number
-}
-variable "timeout" {
-  type        = number
-}
+variable "env" {}
+variable "project_name" {}
+variable "table_name" {}
+variable "function_name" {}
+variable "runtime" {}
+variable "handler" {}
+variable "filename" {}
+variable "memory_size" {}
+variable "timeout" {}

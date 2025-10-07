@@ -2,7 +2,7 @@ resource "aws_iam_role" "lambda_exec_role" {
   name = "${var.function_name}-exec-role"
 
   assume_role_policy = jsonencode({
-    Version = "2012-10-17",
+    Version = "2012-10-17"
     Statement = [{
       Action = "sts:AssumeRole"
       Effect = "Allow"
@@ -20,11 +20,23 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
 
 resource "aws_lambda_function" "lambda" {
   function_name    = var.function_name
-  role             = aws_iam_role.lambda_exec_role.arn
   handler          = var.handler
   runtime          = var.runtime
+  role             = aws_iam_role.lambda_exec_role.arn
   filename         = var.filename
   source_code_hash = filebase64sha256(var.filename)
-  memory_size      = var.memory_size
   timeout          = var.timeout
+  memory_size      = var.memory_size
+
+  environment {
+    variables = {
+      ENV         = var.env
+      TABLE_NAME  = var.dynamodb_table_name
+    }
+  }
+
+  tags = {
+    Environment = var.env
+    Project     = var.function_name
+  }
 }

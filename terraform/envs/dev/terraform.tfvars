@@ -1,7 +1,9 @@
-env = "dev"
-function_name = "saas-ap"
-runtime       = "python3.11"
-handler       = "handler.lambda_handler"
-filename      = "../../src/lambda_function.zip"
-memory_size   = 128
-timeout       = 10
+env            = "dev"
+project_name   = "saas-ap"
+table_name     = "saas-tenants"
+function_name  = "saas-ap"
+runtime        = "python3.11"
+handler        = "lambda_function.lambda_handler"
+filename       = "../../src/lambda_function.zip"
+memory_size    = 128
+timeout        = 10
